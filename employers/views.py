@@ -6,12 +6,13 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.views import APIView
 from .serializers import EmployerSerializer
 from .models import Employer
+from .permissions import EmployeOwnerOrReadOnly
 
 
 
 class EmployerViewSet(ViewSet):
 
-    permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticated, EmployeOwnerOrReadOnly]
 
     def list(self, request):
         queryset = Employer.objects.all()
