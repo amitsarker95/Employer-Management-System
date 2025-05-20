@@ -42,7 +42,10 @@ BUILT_IN_APPS = [
 
 CUSTOM_APPS = [
     'rest_framework',
+    'rest_framework.authtoken',
+    'djoser',
     'core',
+    'employers',
 ]
 
 INSTALLED_APPS = BUILT_IN_APPS + CUSTOM_APPS
@@ -137,4 +140,8 @@ REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     ),
+}
+
+SIMPLE_JWT = {
+   'AUTH_HEADER_TYPES': ('JWT',),
 }
